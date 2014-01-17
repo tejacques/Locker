@@ -5,9 +5,11 @@ using System.Threading;
 
 namespace LockUtility
 {
+    /// <summary>
+    /// A utility class for interacting with ReaderWriterLockSlim.
+    /// </summary>
     public static class Locker
     {
-
         /// <summary>
         /// Performs an action while the provided ReaderWriterLockSlim is
         /// read locked, while taking the necessary exception precautions.
@@ -38,7 +40,9 @@ namespace LockUtility
         /// write locked, while taking the necessary exception precautions.
         /// </summary>
         /// <param name="rwlock">The ReaderWriterLockSlim</param>
-        /// <param name="whileWriteLocked">The action to perform while write locked</param>
+        /// <param name="whileWriteLocked">
+        /// The action to perform while write locked
+        /// </param>
         public static void WriteLock(
             ReaderWriterLockSlim rwlock,
             Action whileWriteLocked)
@@ -51,6 +55,30 @@ namespace LockUtility
             finally
             {
                 rwlock.ExitWriteLock();
+            }
+        }
+
+        /// <summary>
+        /// Performs an action while the provided ReaderWriterLockSlim is
+        /// upgradeably read locked, while taking the necessary
+        /// exception precautions.
+        /// </summary>
+        /// <param name="rwlock">The ReaderWriterLockSlim</param>
+        /// <param name="whileUpgradeableReadLocked">
+        /// The action to perform while upgradeably read locked
+        /// </param>
+        public static void UpgradeableReadLock(
+            ReaderWriterLockSlim rwlock,
+            Action whileUpgradeableReadLocked)
+        {
+            try
+            {
+                rwlock.EnterUpgradeableReadLock();
+                whileUpgradeableReadLocked();
+            }
+            finally
+            {
+                rwlock.ExitUpgradeableReadLock();
             }
         }
     }
