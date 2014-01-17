@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 
-namespace Locker
+namespace LockUtility
 {
-    public class Locker
+    public static class Locker
     {
 
         /// <summary>
@@ -47,10 +47,6 @@ namespace Locker
             {
                 rwlock.EnterWriteLock();
                 whileWriteLocked();
-            }
-            catch (Exception e)
-            {
-                throw e;
             }
             finally
             {
