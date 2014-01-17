@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Locker</name>
+    </assembly>
+    <members>
+        <member name="T:LockUtility.Locker">
+            <summary>
+            A utility class for interacting with ReaderWriterLockSlim.
+            </summary>
+        </member>
+        <member name="M:LockUtility.Locker.ReadLock(System.Threading.ReaderWriterLockSlim,System.Action)">
+            <summary>
+            Performs an action while the provided ReaderWriterLockSlim is
+            read locked, while taking the necessary exception precautions.
+            </summary>
+            <param name="rwlock">The ReaderWriterLockSlim</param>
+            <param name="whileReadLocked">The action to perform while read locked</param>
+        </member>
+        <member name="M:LockUtility.Locker.WriteLock(System.Threading.ReaderWriterLockSlim,System.Action)">
+            <summary>
+            Performs an action while the provided ReaderWriterLockSlim is
+            write locked, while taking the necessary exception precautions.
+            </summary>
+            <param name="rwlock">The ReaderWriterLockSlim</param>
+            <param name="whileWriteLocked">
+            The action to perform while write locked
+            </param>
+        </member>
+        <member name="M:LockUtility.Locker.UpgradeableReadLock(System.Threading.ReaderWriterLockSlim,System.Action)">
+            <summary>
+            Performs an action while the provided ReaderWriterLockSlim is
+            upgradeably read locked, while taking the necessary
+            exception precautions.
+            </summary>
+            <param name="rwlock">The ReaderWriterLockSlim</param>
+            <param name="whileUpgradeableReadLocked">
+            The action to perform while upgradeably read locked
+            </param>
+        </member>
+    </members>
+</doc>

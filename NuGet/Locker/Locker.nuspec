@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Locker</id>
+    <version>1.0.0</version>
+    <title>Locker</title>
+    <authors>Tom Jacques</authors>
+    <owners>Tom Jacques</owners>
+    <licenseUrl>https://github.com/tejacques/Locker/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/tejacques/Locker</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>
+        Binaries for the Locker library.
+        Visit https://github.com/tejacques/Locker for an overview and usage examples.
+    </description>
+    <summary>
+        An open source helper library for simplifying and beautifying the use of ReaderWriterLockSlim by making the syntax more inline with the lock(obj) {} syntax.
+    </summary>
+    <releaseNotes>
+        Notes:
+
+        Version 1.0.0:
+         - Locker.ReadLock(ReaderWriterLockSlim rwlock, Action whileReadLocked)
+         - Locker.WriteLock(ReaderWriterLockSlim rwlock, Action whileWriteLocked)
+         - Locker.UpgradeableReadLock(ReaderWriterLockSlim rwlock, Action whileUpgradeableReadLocked)
+    </releaseNotes>
+    <dependencies>
+    </dependencies>
+    <copyright>Copyright 2014</copyright>
+    <tags>Lock Locking ReadLock WriteLock DeadLock</tags>
+  </metadata>
+  <files>
+    <file src="..\..\lib\*.*" target="lib\Net40" />
+  </files>
+</package>
