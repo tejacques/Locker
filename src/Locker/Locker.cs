@@ -20,9 +20,10 @@ namespace LockUtility
             ReaderWriterLockSlim rwlock,
             Action whileReadLocked)
         {
+            rwlock.EnterReadLock();
+
             try
             {
-                rwlock.EnterReadLock();
                 whileReadLocked();
             }
             catch(Exception e)
@@ -47,9 +48,10 @@ namespace LockUtility
             ReaderWriterLockSlim rwlock,
             Action whileWriteLocked)
         {
+            rwlock.EnterWriteLock();
+
             try
             {
-                rwlock.EnterWriteLock();
                 whileWriteLocked();
             }
             finally
@@ -71,9 +73,10 @@ namespace LockUtility
             ReaderWriterLockSlim rwlock,
             Action whileUpgradeableReadLocked)
         {
+            rwlock.EnterUpgradeableReadLock();
+
             try
             {
-                rwlock.EnterUpgradeableReadLock();
                 whileUpgradeableReadLocked();
             }
             finally
