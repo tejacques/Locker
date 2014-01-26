@@ -18,7 +18,7 @@ PM> Install-Package Locker
 Why was it made?
 ----------------
 
-It's easy to make mistakes when writing multi-threaded code. Worse, it's annoying and time consuming to do it correctly using `ReaderWriterLockSlim`. C#'s build in `lock` syntax is a beautiful intuitive way of writing locking code, but there is no equivalent syntax for `readlock` and `writelock`. That's where Locker comes in.
+It's easy to make mistakes when writing multi-threaded code. Worse, it's annoying and time consuming to do it correctly using `ReaderWriterLockSlim`. C#'s built in `lock` syntax is a beautiful intuitive way of writing locking code, but there is no equivalent syntax for `readlock` and `writelock`. That's where Locker comes in.
 
 Example Usage
 -------------
