@@ -14,8 +14,12 @@ namespace LockUtility
         /// Performs an action while the provided ReaderWriterLockSlim is
         /// read locked, while taking the necessary exception precautions.
         /// </summary>
-        /// <param name="rwlock">The ReaderWriterLockSlim</param>
-        /// <param name="whileReadLocked">The action to perform while read locked</param>
+        /// <param name="rwlock">
+        /// The ReaderWriterLockSlim
+        /// </param>
+        /// <param name="whileReadLocked">
+        /// The action to perform while read locked
+        /// </param>
         public static void ReadLock(
             ReaderWriterLockSlim rwlock,
             Action whileReadLocked)
@@ -26,14 +30,78 @@ namespace LockUtility
             {
                 whileReadLocked();
             }
-            catch(Exception e)
-            {
-                throw e;
-            }
             finally
             {
                 rwlock.ExitReadLock();
             }
+        }
+
+        /// <summary>
+        /// Performs an action while the provided ReaderWriterLockSlim is
+        /// read locked, while taking the necessary exception precautions.
+        /// </summary>
+        /// <param name="rwlock">The ReaderWriterLockSlim</param>
+        /// <param name="timeout">The number of miliseconds to wait</param>
+        /// <param name="whileReadLocked">
+        /// The action to perform while read locked
+        /// </param>
+        /// <returns>
+        /// true if the lock was acquired successfully false otherwise
+        /// </returns>
+        public static bool TryReadLock(
+            ReaderWriterLockSlim rwlock,
+            int timeout,
+            Action whileReadLocked)
+        {
+            if (rwlock.TryEnterReadLock(timeout))
+            {
+                try
+                {
+                    whileReadLocked();
+                }
+                finally
+                {
+                    rwlock.ExitReadLock();
+                }
+
+                return true;
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Performs an action while the provided ReaderWriterLockSlim is
+        /// read locked, while taking the necessary exception precautions.
+        /// </summary>
+        /// <param name="rwlock">The ReaderWriterLockSlim</param>
+        /// <param name="timeout">The number of miliseconds to wait</param>
+        /// <param name="whileReadLocked">
+        /// The action to perform while read locked
+        /// </param>
+        /// <returns>
+        /// true if the lock was acquired successfully false otherwise
+        /// </returns>
+        public static bool TryReadLock(
+            ReaderWriterLockSlim rwlock,
+            TimeSpan timeout,
+            Action whileReadLocked)
+        {
+            if (rwlock.TryEnterReadLock(timeout))
+            {
+                try
+                {
+                    whileReadLocked();
+                }
+                finally
+                {
+                    rwlock.ExitReadLock();
+                }
+
+                return true;
+            }
+
+            return false;
         }
 
         /// <summary>
@@ -62,6 +130,74 @@ namespace LockUtility
 
         /// <summary>
         /// Performs an action while the provided ReaderWriterLockSlim is
+        /// write locked, while taking the necessary exception precautions.
+        /// </summary>
+        /// <param name="rwlock">The ReaderWriterLockSlim</param>
+        /// <param name="timeout">The number of miliseconds to wait</param>
+        /// <param name="whileWriteLocked">
+        /// The action to perform while write locked
+        /// </param>
+        /// <returns>
+        /// true if the lock was acquired successfully false otherwise
+        /// </returns>
+        public static bool TryWriteLock(
+            ReaderWriterLockSlim rwlock,
+            int timeout,
+            Action whileWriteLocked)
+        {
+            if (rwlock.TryEnterWriteLock(timeout))
+            {
+                try
+                {
+                    whileWriteLocked();
+                }
+                finally
+                {
+                    rwlock.ExitWriteLock();
+                }
+
+                return true;
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Performs an action while the provided ReaderWriterLockSlim is
+        /// write locked, while taking the necessary exception precautions.
+        /// </summary>
+        /// <param name="rwlock">The ReaderWriterLockSlim</param>
+        /// <param name="timeout">The number of miliseconds to wait</param>
+        /// <param name="whileWriteLocked">
+        /// The action to perform while write locked
+        /// </param>
+        /// <returns>
+        /// true if the lock was acquired successfully false otherwise
+        /// </returns>
+        public static bool TryWriteLock(
+            ReaderWriterLockSlim rwlock,
+            TimeSpan timeout,
+            Action whileWriteLocked)
+        {
+            if (rwlock.TryEnterWriteLock(timeout))
+            {
+                try
+                {
+                    whileWriteLocked();
+                }
+                finally
+                {
+                    rwlock.ExitWriteLock();
+                }
+
+                return true;
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Performs an action while the provided ReaderWriterLockSlim is
         /// upgradeably read locked, while taking the necessary
         /// exception precautions.
         /// </summary>
@@ -83,6 +219,76 @@ namespace LockUtility
             {
                 rwlock.ExitUpgradeableReadLock();
             }
+        }
+
+        /// <summary>
+        /// Performs an action while the provided ReaderWriterLockSlim is
+        /// upgradeably read locked, while taking the necessary
+        /// exception precautions.
+        /// </summary>
+        /// <param name="rwlock">The ReaderWriterLockSlim</param>
+        /// <param name="timeout">The number of miliseconds to wait</param>
+        /// <param name="whileUpgradeableReadLocked">
+        /// The action to perform while upgradeably read locked
+        /// </param>
+        /// <returns>
+        /// true if the lock was acquired successfully false otherwise
+        /// </returns>
+        public static bool TryUpgradeableReadLock(
+            ReaderWriterLockSlim rwlock,
+            int timeout,
+            Action whileUpgradeableReadLocked)
+        {
+            if (rwlock.TryEnterUpgradeableReadLock(timeout))
+            {
+                try
+                {
+                    whileUpgradeableReadLocked();
+                }
+                finally
+                {
+                    rwlock.ExitUpgradeableReadLock();
+                }
+
+                return true;
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Performs an action while the provided ReaderWriterLockSlim is
+        /// upgradeably read locked, while taking the necessary
+        /// exception precautions.
+        /// </summary>
+        /// <param name="rwlock">The ReaderWriterLockSlim</param>
+        /// <param name="timeout">The number of miliseconds to wait</param>
+        /// <param name="whileUpgradeableReadLocked">
+        /// The action to perform while upgradeably read locked
+        /// </param>
+        /// <returns>
+        /// true if the lock was acquired successfully false otherwise
+        /// </returns>
+        public static bool TryUpgradeableReadLock(
+            ReaderWriterLockSlim rwlock,
+            TimeSpan timeout,
+            Action whileUpgradeableReadLocked)
+        {
+            if (rwlock.TryEnterUpgradeableReadLock(timeout))
+            {
+                try
+                {
+                    whileUpgradeableReadLocked();
+                }
+                finally
+                {
+                    rwlock.ExitUpgradeableReadLock();
+                }
+
+                return true;
+            }
+
+            return false;
         }
     }
 }
