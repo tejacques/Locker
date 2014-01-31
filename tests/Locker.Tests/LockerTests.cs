@@ -15,7 +15,7 @@ namespace LockerTests
         private object lobj;
         private ReaderWriterLockSlim rwlock;
         private int _loops = 10000;
-        private int _loopsInner = 50000;
+        private int _loopsInner = 10000;
         [TestFixtureSetUp]
         public void SetUp()
         {
