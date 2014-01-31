@@ -14,8 +14,40 @@
             Performs an action while the provided ReaderWriterLockSlim is
             read locked, while taking the necessary exception precautions.
             </summary>
+            <param name="rwlock">
+            The ReaderWriterLockSlim
+            </param>
+            <param name="whileReadLocked">
+            The action to perform while read locked
+            </param>
+        </member>
+        <member name="M:LockUtility.Locker.TryReadLock(System.Threading.ReaderWriterLockSlim,System.Int32,System.Action)">
+            <summary>
+            Performs an action while the provided ReaderWriterLockSlim is
+            read locked, while taking the necessary exception precautions.
+            </summary>
             <param name="rwlock">The ReaderWriterLockSlim</param>
-            <param name="whileReadLocked">The action to perform while read locked</param>
+            <param name="timeout">The number of miliseconds to wait</param>
+            <param name="whileReadLocked">
+            The action to perform while read locked
+            </param>
+            <returns>
+            true if the lock was acquired successfully false otherwise
+            </returns>
+        </member>
+        <member name="M:LockUtility.Locker.TryReadLock(System.Threading.ReaderWriterLockSlim,System.TimeSpan,System.Action)">
+            <summary>
+            Performs an action while the provided ReaderWriterLockSlim is
+            read locked, while taking the necessary exception precautions.
+            </summary>
+            <param name="rwlock">The ReaderWriterLockSlim</param>
+            <param name="timeout">The number of miliseconds to wait</param>
+            <param name="whileReadLocked">
+            The action to perform while read locked
+            </param>
+            <returns>
+            true if the lock was acquired successfully false otherwise
+            </returns>
         </member>
         <member name="M:LockUtility.Locker.WriteLock(System.Threading.ReaderWriterLockSlim,System.Action)">
             <summary>
@@ -27,6 +59,34 @@
             The action to perform while write locked
             </param>
         </member>
+        <member name="M:LockUtility.Locker.TryWriteLock(System.Threading.ReaderWriterLockSlim,System.Int32,System.Action)">
+            <summary>
+            Performs an action while the provided ReaderWriterLockSlim is
+            write locked, while taking the necessary exception precautions.
+            </summary>
+            <param name="rwlock">The ReaderWriterLockSlim</param>
+            <param name="timeout">The number of miliseconds to wait</param>
+            <param name="whileWriteLocked">
+            The action to perform while write locked
+            </param>
+            <returns>
+            true if the lock was acquired successfully false otherwise
+            </returns>
+        </member>
+        <member name="M:LockUtility.Locker.TryWriteLock(System.Threading.ReaderWriterLockSlim,System.TimeSpan,System.Action)">
+            <summary>
+            Performs an action while the provided ReaderWriterLockSlim is
+            write locked, while taking the necessary exception precautions.
+            </summary>
+            <param name="rwlock">The ReaderWriterLockSlim</param>
+            <param name="timeout">The number of miliseconds to wait</param>
+            <param name="whileWriteLocked">
+            The action to perform while write locked
+            </param>
+            <returns>
+            true if the lock was acquired successfully false otherwise
+            </returns>
+        </member>
         <member name="M:LockUtility.Locker.UpgradeableReadLock(System.Threading.ReaderWriterLockSlim,System.Action)">
             <summary>
             Performs an action while the provided ReaderWriterLockSlim is
@@ -37,6 +97,36 @@
             <param name="whileUpgradeableReadLocked">
             The action to perform while upgradeably read locked
             </param>
+        </member>
+        <member name="M:LockUtility.Locker.TryUpgradeableReadLock(System.Threading.ReaderWriterLockSlim,System.Int32,System.Action)">
+            <summary>
+            Performs an action while the provided ReaderWriterLockSlim is
+            upgradeably read locked, while taking the necessary
+            exception precautions.
+            </summary>
+            <param name="rwlock">The ReaderWriterLockSlim</param>
+            <param name="timeout">The number of miliseconds to wait</param>
+            <param name="whileUpgradeableReadLocked">
+            The action to perform while upgradeably read locked
+            </param>
+            <returns>
+            true if the lock was acquired successfully false otherwise
+            </returns>
+        </member>
+        <member name="M:LockUtility.Locker.TryUpgradeableReadLock(System.Threading.ReaderWriterLockSlim,System.TimeSpan,System.Action)">
+            <summary>
+            Performs an action while the provided ReaderWriterLockSlim is
+            upgradeably read locked, while taking the necessary
+            exception precautions.
+            </summary>
+            <param name="rwlock">The ReaderWriterLockSlim</param>
+            <param name="timeout">The number of miliseconds to wait</param>
+            <param name="whileUpgradeableReadLocked">
+            The action to perform while upgradeably read locked
+            </param>
+            <returns>
+            true if the lock was acquired successfully false otherwise
+            </returns>
         </member>
     </members>
 </doc>

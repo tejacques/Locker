@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Locker</id>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <title>Locker</title>
     <authors>Tom Jacques</authors>
     <owners>Tom Jacques</owners>
@@ -18,6 +18,15 @@
     </summary>
     <releaseNotes>
         Notes:
+
+        Version 1.1.0:
+         - Added the TryLock methods:
+         - Locker.TryReadLock(ReaderWriterLockSlim, rwlock, int timeout, Action whileReadLocked)
+         - Locker.TryReadLock(ReaderWriterLockSlim, rwlock, TimeSpan timeout, Action whileReadLocked)
+         - Locker.TryWriteLock(ReaderWriterLockSlim, rwlock, int timeout, Action whileWriteLocked)
+         - Locker.TryWriteLock(ReaderWriterLockSlim, rwlock, TimeSpan timeout, Action whileWriteLocked)
+         - Locker.TryUpgradeableReadLock(ReaderWriterLockSlim, rwlock, int timeout, Action whileUpgradeableReadLocked)
+         - Locker.TryUpgradeableReadLock(ReaderWriterLockSlim, rwlock, TimeSpan timeout, Action whileUpgradeableReadLocked)
 
         Version 1.0.0:
          - Locker.ReadLock(ReaderWriterLockSlim rwlock, Action whileReadLocked)
