@@ -92,21 +92,21 @@ finally
 #### Locker usage ####
 
 ``` csharp
-Locker.ReadLock(rwlock, () =>
+rwlock.ReadLock(() =>
 {
     // do something while read locked
 });
 ```
 
 ``` csharp
-Locker.WriteLock(rwlock, () =>
+rwlock.WriteLock(() =>
 {
     // do something while write locked
 });
 ```
 
 ``` csharp
-Locker.UpgradeableReadLock(rwlock, () =>
+rwlock.UpgradeableReadLock(() =>
 {
     bool shouldUpgrade;
     // do something while upgradeably read locked
@@ -114,7 +114,7 @@ Locker.UpgradeableReadLock(rwlock, () =>
     if (shouldUpgrade)
     {
         // upgrad to write lock
-        Locker.WriteLock(rwlock, () =>
+        rwlock.WriteLock(() =>
         {
             // do something while write locked
         });
