@@ -21,7 +21,7 @@ namespace LockUtility
         /// The action to perform while read locked
         /// </param>
         public static void ReadLock(
-            ReaderWriterLockSlim rwlock,
+            this ReaderWriterLockSlim rwlock,
             Action whileReadLocked)
         {
             rwlock.EnterReadLock();
@@ -49,7 +49,7 @@ namespace LockUtility
         /// true if the lock was acquired successfully false otherwise
         /// </returns>
         public static bool TryReadLock(
-            ReaderWriterLockSlim rwlock,
+            this ReaderWriterLockSlim rwlock,
             int timeout,
             Action whileReadLocked)
         {
@@ -83,7 +83,7 @@ namespace LockUtility
         /// true if the lock was acquired successfully false otherwise
         /// </returns>
         public static bool TryReadLock(
-            ReaderWriterLockSlim rwlock,
+            this ReaderWriterLockSlim rwlock,
             TimeSpan timeout,
             Action whileReadLocked)
         {
@@ -113,7 +113,7 @@ namespace LockUtility
         /// The action to perform while write locked
         /// </param>
         public static void WriteLock(
-            ReaderWriterLockSlim rwlock,
+            this ReaderWriterLockSlim rwlock,
             Action whileWriteLocked)
         {
             rwlock.EnterWriteLock();
@@ -141,7 +141,7 @@ namespace LockUtility
         /// true if the lock was acquired successfully false otherwise
         /// </returns>
         public static bool TryWriteLock(
-            ReaderWriterLockSlim rwlock,
+            this ReaderWriterLockSlim rwlock,
             int timeout,
             Action whileWriteLocked)
         {
@@ -175,7 +175,7 @@ namespace LockUtility
         /// true if the lock was acquired successfully false otherwise
         /// </returns>
         public static bool TryWriteLock(
-            ReaderWriterLockSlim rwlock,
+            this ReaderWriterLockSlim rwlock,
             TimeSpan timeout,
             Action whileWriteLocked)
         {
@@ -206,7 +206,7 @@ namespace LockUtility
         /// The action to perform while upgradeably read locked
         /// </param>
         public static void UpgradeableReadLock(
-            ReaderWriterLockSlim rwlock,
+            this ReaderWriterLockSlim rwlock,
             Action whileUpgradeableReadLocked)
         {
             rwlock.EnterUpgradeableReadLock();
@@ -235,7 +235,7 @@ namespace LockUtility
         /// true if the lock was acquired successfully false otherwise
         /// </returns>
         public static bool TryUpgradeableReadLock(
-            ReaderWriterLockSlim rwlock,
+            this ReaderWriterLockSlim rwlock,
             int timeout,
             Action whileUpgradeableReadLocked)
         {
@@ -270,7 +270,7 @@ namespace LockUtility
         /// true if the lock was acquired successfully false otherwise
         /// </returns>
         public static bool TryUpgradeableReadLock(
-            ReaderWriterLockSlim rwlock,
+            this ReaderWriterLockSlim rwlock,
             TimeSpan timeout,
             Action whileUpgradeableReadLocked)
         {
